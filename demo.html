@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagination Example</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex items-center justify-center min-h-screen bg-slate-900">
+    <div id="pagination"></div>
+
+    <script>
+      const pagination = document.querySelector("#pagination");
+
+      const ul = document.createElement("ul");
+      ul.className = "inline-flex -space-x-px text-base h-10";
+
+      [1, "_", 4, 5, "current", 7, 8, "_", 11].map((page) => {
+        const pageLink = document.createElement("a");
+        pageLink.className =
+          "flex items-center justify-center px-4 h-10 leading-tight  bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white";
+
+        pageLink.href = ["_", "current"].includes(page) ? "#" : `#?page=${page}`;
+
+        if (page === 1) {
+          pageLink.innerText = "First";
+        } else if (page === 11) {
+          pageLink.innerText = "Last";
+        } else if (page === "_") {
+          pageLink.innerText = "...";
+        } else {
+          pageLink.innerText = page;
+        }
+
+        const li = document.createElement("li");
+        li.appendChild(pageLink);
+        ul.appendChild(li);
+      });
+
+      pagination.appendChild(ul);
+    </script>
+  </body>
+</html>

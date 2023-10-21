@@ -1,0 +1,14 @@
+{
+  "name": "pagination-logic",
+  "version": "1.0.0",
+  "description": "A Javascript logic to generate pagination items",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "author": "Emerson Carvalho <emerson@emersonbroga.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
